@@ -1,0 +1,96 @@
+package com.example.demo.model;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
+import lombok.Data;
+
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+
+
+@Data
+@Entity
+@Table(name="users")
+public class User  implements UserDetails {
+    @SequenceGenerator(
+            name = "users_sequence",
+            sequenceName = "users_sequence",
+            allocationSize = 1
+    )
+	// instance variables 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+	@NotNull(message = "userName cannot be empty")
+	@Column
+    private String userName; 
+	@Column
+    private String birthdate;
+	@Column
+    private String residenceCountry;
+	@Column
+    private String phone;
+	@Column
+    private String genre;
+	
+	public Optional<String> getPhone(){
+	    return Optional.ofNullable(phone);
+	  }
+	
+	public Optional<String> getGenre(){
+	    return Optional.ofNullable(genre);
+	  }
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+}

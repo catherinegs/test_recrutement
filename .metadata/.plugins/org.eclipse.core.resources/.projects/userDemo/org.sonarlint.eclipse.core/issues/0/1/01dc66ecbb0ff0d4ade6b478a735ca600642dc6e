@@ -1,0 +1,17 @@
+
+…
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8ùÌ¥÷ò0Hˆ
+RMAJORZ
+CODE_SMELL
+[
+java:S1452."&Remove usage of generic wildcard type.(ÄÑØ8ùÌ¥÷ò0H
+RCRITICALZ
+CODE_SMELL
+}
+java:S1172"ERemove these unused method parameters "headers", "status", "request".(´„ï¯úÿÿÿÿ8ùÌ¥÷ò0H‰
+RMAJORZ
+CODE_SMELL
+\
+java:S1452%"&Remove usage of generic wildcard type.(ªÙ¡õ8ùÌ¥÷ò0H‡
+RCRITICALZ
+CODE_SMELL

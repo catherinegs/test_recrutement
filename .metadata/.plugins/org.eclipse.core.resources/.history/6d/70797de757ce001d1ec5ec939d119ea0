@@ -1,0 +1,9 @@
+package com.example.demo.constraints;
+
+import jakarta.servlet.annotation.HttpMethodConstraint;
+
+public interface CountryConstraint {
+	
+  
+
+}

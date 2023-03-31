@@ -1,0 +1,11 @@
+package com.example.demo.controller;
+
+public interface HttpStatus {
+
+	org.springframework.http.HttpStatus CREATED;
+	org.springframework.http.HttpStatus OK;
+	org.springframework.http.HttpStatus NO_CONTENT = null;
+	
+	
+
+}

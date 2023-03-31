@@ -1,0 +1,31 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
+
+import com.example.demo.model.User;
+import com.example.demo.service.UserServiceImpl;
+
+@RestController
+@RequestMapping("/user")
+public class UserController {
+	
+
+    // handler method to handle home page request
+    @GetMapping("/index")
+    public String home(){
+        return "index";
+    }
+    
+    @GetMapping("/user/registration")
+    public String showRegistrationForm(WebRequest request, Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "registration";
+    }
+	
+
+}

@@ -1,0 +1,16 @@
+package com.example.demo.constraints;
+
+
+
+import javax.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
+public class CountryValidator implements ConstraintValidator<Country, String> {
+
+	@Override
+	public boolean isValid(String value, ConstraintValidatorContext context) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

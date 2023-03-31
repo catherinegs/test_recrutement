@@ -1,0 +1,36 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.model.User;
+import com.example.demo.service.UserService;
+
+@RestController
+@RequestMapping("/user")
+public class UserController {
+	
+    private  UserService service;
+
+    @PostMapping("/create")
+    public User createUser(@RequestBody User user) {
+        return this.service.saveOneUser(user);
+    }
+
+    @GetMapping("/fetch/{id}")
+    public User retrieveUser(@PathVariable int id) {
+        return this.service.findOneUser(id);
+    }
+
+    @GetMapping("/fetchAll")
+    public List<User> retrieveUsers() {
+        return this.service.findAllUser();
+    }
+
+    @DeleteMapping("delete/{id}")
+    public void deleteOneUser(@PathVariable("id") int userId) {
+        this.service.deleteOneUser(userId);
+    }
+
+}

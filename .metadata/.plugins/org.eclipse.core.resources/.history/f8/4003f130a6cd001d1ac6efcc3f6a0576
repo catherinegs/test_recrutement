@@ -1,0 +1,22 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.model.User;
+import com.example.demo.service.UserServiceImpl;
+
+@RestController
+@RequestMapping("/user")
+public class UserController {
+	
+
+    // handler method to handle home page request
+    @GetMapping("/index")
+    public String home(){
+        return "index";
+    }
+	
+
+}

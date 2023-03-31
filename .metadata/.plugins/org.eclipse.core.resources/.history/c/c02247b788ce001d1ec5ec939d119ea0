@@ -1,0 +1,48 @@
+package com.example.demo.model.Dtos;
+
+import java.util.Date;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.validation.annotation.Validated;
+
+import com.example.demo.model.Country;
+import com.example.demo.model.User;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
+import jakarta.validation.constraints.Pattern.Flag;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
+
+@Data
+public class RegisterUserDto {
+	
+	  @NotEmpty(message = "The full name is required.")
+	  @Size(min = 2, max = 100, message = "The length of full name must be between 2 and 100 characters.")
+	  private String userName;
+
+	  @NotEmpty(message = "The email address is required.")
+	  @Email(message = "The email address is invalid.", flags = { Flag.CASE_INSENSITIVE })
+	  private String email;
+
+	  @NotNull(message = "The date of birth is required.")
+	  private Date birthdate;
+
+	  @Null(message = "The gender can be .")
+	  private String gender;
+
+	  @Valid
+	  @NotNull(message = "The country is required.")
+	  @Country(message = "you have to a residenceCountry in France to registre at this service")
+	  private String country;
+	  
+	  public User toUser() {
+		  return new User();
+	
+				  
+		  
+	  }
+
+}

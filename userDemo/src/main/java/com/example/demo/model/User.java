@@ -1,15 +1,11 @@
 package com.example.demo.model;
 
+import java.util.Collection;
 import java.util.Optional;
-import lombok.Data;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import javax.persistence.*;
+
+import lombok.Data;
 
 
 
@@ -17,24 +13,34 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @Entity
 @Table(name="users")
 public class User {
-	
+    @SequenceGenerator(
+            name = "users_sequence",
+            sequenceName = "users_sequence",
+            allocationSize = 1
+    )
 	// instance variables 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-	@Column
+    private int id;
+    
+	@Column(length = 100, nullable = false)
     private String userName; 
-	@Column
+	
+	@Column(unique = true, nullable = false)
+	private String email;
+    
+	@Column(nullable = false)
     private String birthdate;
-	@Column
+	
+	@Column(nullable = false)
     private String residenceCountry;
-	@Column
+    
+	@Column(length = 50)
     private String phone;
-	@Column
+	
+	@Column(length = 10)
     private String genre;
-    
-    
-    
+	
 	public Optional<String> getPhone(){
 	    return Optional.ofNullable(phone);
 	  }

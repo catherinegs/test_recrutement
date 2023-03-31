@@ -1,0 +1,44 @@
+package com.example.demo.model;
+
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
+import lombok.Data;
+import javax.persistence.*;
+
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+
+@Data
+@Entity
+@Table(name="users")
+public class User {
+	
+	// instance variables 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+	@Column
+    private String userName; 
+	@Column
+    private String birthdate;
+	@Column
+    private String residenceCountry;
+	@Column
+    private String phone;
+	@Column
+    private String genre;
+	
+	public Optional<String> getPhone(){
+	    return Optional.ofNullable(phone);
+	  }
+	
+	public Optional<String> getGenre(){
+	    return Optional.ofNullable(genre);
+	  }
+
+
+}
